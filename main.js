@@ -13,8 +13,10 @@ async function CheckWeather() {
 
         if (response.status === 404) {
             document.querySelector('.error').style.display = 'block';
+            weather.style.display = 'none';
         } else {
             let data = await response.json();
+            document.querySelector('.error').style.display = 'none';
 
             weather.style.display = 'block';
             document.querySelector('.city').innerHTML = data.name;
@@ -50,6 +52,8 @@ async function CheckWeather() {
 Btn.onclick = () => {
     CheckWeather();
 };
+
+
 
 
 
